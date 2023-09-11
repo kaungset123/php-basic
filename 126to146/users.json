@@ -1,0 +1,66 @@
+[
+    {
+        "id": "1",
+        "name":"Sun",
+        "creator":"0",
+        "email":"sun@gmail.com",
+        "password":"1592"}
+        ,
+
+        {
+            "id": "2",
+            "name":"Leomord",
+            "creator":"1",
+            "email":"Leomord@gmail.com",
+            "password":"7593"},
+        {
+             "id": "3",
+                    "name":"Brody",
+                    "creator":"3",
+                    "email":"brody@gmail.com",
+                    "password":"9584"}
+                    , 
+                    {
+                        "id": "4",
+                        "name":"spiderman",
+                        "creator":"2",
+                        "email":"grandpalace@gmail.com",
+                        "password":"6438"}
+                        ,
+                        {
+                            "id": "5",
+                            "name":"Thor",
+                            "creator":"1",
+                            "email":"thor@gmail.com",
+                            "password":"7584"}
+                            ,
+                            {
+                                "id": "6",
+                                "name":"Kagura",
+                                "creator":"3",
+                                "email":"kagura@gmail.com",
+                                "password":"5743"}
+                                ,   
+                                {
+                                    "id": "7",
+                                    "name":"mummy",
+                                    "creator":"3",
+                                    "email":"mummy@gmail.com",
+                                    "password":"3637"}
+                                    , 
+                                    {
+                                        "id": "8",
+                                        "name":"pikachu",
+                                        "creator":"6",
+                                        "email":"pikachu@gmail.com",
+                                        "password":"5383"}
+                                        , 
+                                {
+                                    "id": "9",
+                                    "name":"Chou",
+                                    "creator":"2",
+                                    "email":"chou@gmail.com",
+                                    "password":"5873"}
+                                      
+
+    ]
