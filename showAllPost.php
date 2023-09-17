@@ -13,43 +13,13 @@ if(checkSession("username")){
     header("Location:index.php");
 }
 
-if(isset($_POST['submit'])){
-    $postitle = $_POST["postitle"];
-    $postype = $_POST["postype"];
-    $postwriter = $_POST["postwriter"];
-    $postcontent = $_POST["postcontent"];
-    $file = $_FILES['file']; // array type
 
-    // echo $postitle;
-    // echo $postype;
-    // echo $postwriter;
-    // echo $postcontent;
-    // echo var_dump($file);
-
-    $imglink = mt_rand(time(),time()) . "_" . $_FILES['file']['name'] . mt_rand(time(),time());
-    move_uploaded_file($_FILES['file']['tmp_name'], 'assets/upload/' . $imglink);
-
-    $bol = insertPost($postitle,$postype,$postwriter,$postcontent,$imglink);
-
-    // echo $bol;
-    if($bol){
-      echo "<div class='container my-5'> <div class='alert alert-warning alert-dismissible fade show' role='alert'>
-      <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-          <span aria-hidden='true'>&times;</span>
-      </button>
-       Post successfully inserted 
-    </div></div>";
-    }else{
-      echo "<div class='container my-5'> <div class='alert alert-warning alert-dismissible fade show' role='alert'>
-      <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-          <span aria-hidden='true'>&times;</span>
-      </button>
-      Post insert fail
-    </div></div>";
-    }
-
+$start = 0;
+if(isset($_GET['start'])){
+   $start = $_GET['start'];
 }
 
+$rows = getPostCount();
 
 ?>
 <!-- <h1>Hello Admin</h1> -->
@@ -58,11 +28,11 @@ if(isset($_POST['submit'])){
     <?php include_once "views/sidebar.php"?>
         <section class="col-md-9">
             <?php
-            $result = getAllPost(2);
+            $result = getAllPost(2,$start);
             foreach($result as $post){
                echo ' <div class="card mb-4">
                    <div class="card-block p-3">
-                         <h5>'.$post["title"].'</h5>
+                         <h5>'.substr($post["title"],0,30).'</h5>
                          <p>'.substr($post["content"],0,100).'</p>
                          <a href="postEdit.php?pid='.$post["id"].'" class="btn btn-info btn-sm float-right">Edit</a>
                    </div>
@@ -71,6 +41,22 @@ if(isset($_POST['submit'])){
             ?>
         </section>
   </div>
+</div>
+
+<div class="container">
+    <div class="col-md-4 offset-md-4">
+          <nav aria-label="Page navigation example">
+                 <ul class="pagination">       
+                      <?php
+                      $t=0;
+                      for($i=0 ;$i < $rows ; $i+=10){
+                         $t++;
+                         echo '<li class="page-item"><a class="page-link" href="showAllPost.php?start='.$i.'">'.$t.'</a></li>';
+                      }
+                      ?>                       
+                 </ul>
+          </nav>
+    </div>
 </div>
 
 <?php

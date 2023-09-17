@@ -1,9 +1,8 @@
 <?php
 
 include_once "views/top.php";
-include_once "views/nav.php";
 include_once "views/header.php";
-include_once "sysgem/postgenerator.php";
+
 
 if(checkSession("username")){
     if(getSession("username") != "kaungsettnaing"){
@@ -18,18 +17,22 @@ if(isset($_POST['submit'])){
     $postype = $_POST["postype"];
     $postwriter = $_POST["postwriter"];
     $postcontent = $_POST["postcontent"];
+    $subject = $_POST["subject"];
     $file = $_FILES['file']; // array type
+   
 
-    // echo $postitle;
-    // echo $postype;
-    // echo $postwriter;
-    // echo $postcontent;
+    // echo $postitle ."<br>";
+    // echo $postype ."<br>";
+    // echo $postwriter ."<br>";
+    // echo $postcontent ."<br>";
+    // echo $subject ."<br>";
     // echo var_dump($file);
+
 
     $imglink = mt_rand(time(),time()) . "_" . $_FILES['file']['name'] . mt_rand(time(),time());
     move_uploaded_file($_FILES['file']['tmp_name'], 'assets/upload/' . $imglink);
 
-    $bol = insertPost($postitle,$postype,$postwriter,$postcontent,$imglink);
+    $bol = insertPost($postitle,$postype,$postwriter,$postcontent,$imglink,$subject);
 
     // echo $bol;
     if($bol){
@@ -70,6 +73,19 @@ if(isset($_POST['submit'])){
                     <select  class="form-control" id="postype" name="postype">
                          <option value="1">free post</option>
                         <option value="2">paid post</option>
+                     </select>
+            </div>
+
+            <div class="form-group">
+                 <label for="subject" class="english" >Subject</label>
+                    <select  class="form-control" id="subject" name="subject">
+                        <?php 
+                              $subjects = getAllSubject() ;
+                              foreach($subjects as $data){
+                                echo "<option value='".$data["id"]."'>".$data["name"]."</option>";
+                              }
+                        ?>
+                      
                      </select>
             </div>
 

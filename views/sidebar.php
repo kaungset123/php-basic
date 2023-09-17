@@ -13,7 +13,7 @@
     }
 </style>
 
-<aside class="col-md-3">
+<aside class="col-md-3 mt-5">
     <ul class="list-group">
       <li class="list-group-item"><a href= "admin.php">Post Insert </a></li>
       <li class="list-group-item"><a href= "showAllPost.php">Show All Post </a></li>

@@ -24,20 +24,23 @@
        ?>
         </a>
       </li>
-
-      <li class="nav-item">
-        <a class="nav-link text-white english" href="#">NEWS</a>
-      </li>
     
       <li class="nav-item">
-        <a class="nav-link text-white english" href="#">Positic</a>
+        <a class="nav-link text-white english" href="index.php">NEWS</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white english" href="#">Wars</a>
+        <a class="nav-link text-white english" href="filterPost.php?sid=1">Politic</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white english" href="#">IT NEWS</a>
+        <a class="nav-link text-white english" href="filterPost.php?sid=2">Wars</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link text-white english" href="filterPost.php?sid=3">IT News</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white english" href="filterPost.php?sid=4">Social</a>
+      </li>
+
       <?php
            if(checkSession("username")){
             echo "

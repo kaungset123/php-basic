@@ -1,8 +1,8 @@
 <?php
 
 include_once "views/top.php";
-include_once "views/nav.php";
-include_once "sysgem/membership.php";
+
+
 
 if(isset($_POST['submit'])){
     $email = $_POST["email"];

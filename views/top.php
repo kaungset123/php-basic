@@ -1,6 +1,10 @@
 <?php
 session_start();
 include_once "sysgem/mySession.php"; 
+include_once "sysgem/postgenerator.php";
+include_once "sysgem/membership.php";
+include_once "views/nav.php";
+
 ?>
 
 <!DOCTYPE html>
